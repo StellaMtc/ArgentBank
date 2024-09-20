@@ -1,18 +1,23 @@
-import React from 'react';
-import { createRoot } from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
-import { Provider } from 'react-redux';
-import { store } from './utils/store';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./styles/main.css";
+import App from "./App";
 
-import App from './App';
+// Redux
+import { Provider } from "react-redux";
+import { configureStore } from "@reduxjs/toolkit";
+import rootReucer from "./reducers";
 
-const container = document.getElementById('root');
-const root = createRoot(container);
+// Configuration du magasin Redux
+const store = configureStore({
+  reducer: rootReucer,
+  // Propriété "devTools" : active l'extension Redux DevTools pour le débogage
+  devTools: true,
+});
 
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <Provider store={store} >
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+  <Provider store={store}>
+    <App />
   </Provider>
 );
