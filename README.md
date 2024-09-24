@@ -1,86 +1,72 @@
-ArgentBank - Application de gestion bancaire
+# Argent Bank API
 
-ArgentBank Icon
-Démo en ligne
+This codebase contains the code needed to run the backend for Argent Bank.
 
-Vous pouvez accéder à la démo en ligne de l'application ArgentBank ici.
-Table des matières
+## Getting Started
 
-    Description du projet
-    Fonctionnalités
-    Technologies utilisées
-    Prérequis
-    Installation
+### Prerequisites
 
-1. Description du projet
+Argent Bank uses the following tech stack:
 
-ArgentBank est une application bancaire permettant aux utilisateurs de gérer leurs comptes et leurs transactions en ligne. Ce projet est divisé en deux phases :
+- [Node.js v12](https://nodejs.org/en/)
+- [MongoDB Community Server](https://www.mongodb.com/try/download/community)
 
-    Phase 1 : Authentification des utilisateurs, gestion des profils.
-    Phase 2 : Gestion des transactions (consultation, ajout, modification, suppression).
+Please make sure you have the right versions and download both packages. You can verify this by using the following commands in your terminal:
 
-L'application est construite avec React et utilise Redux pour gérer l'état global. L'objectif principal est de permettre aux utilisateurs de se connecter, de consulter et de modifier leurs informations personnelles de manière sécurisée.
-2. Fonctionnalités
-Phase 1 : Authentification et Profil
+```bash
+# Check Node.js version
+node --version
 
-    Connexion / Déconnexion des utilisateurs.
-    Consultation et modification du profil utilisateur (nom, prénom).
-    Accès sécurisé aux informations utilisateur via des routes protégées.
+# Check Mongo version
+mongo --version
+```
 
-Phase 2 : Transactions
+### Instructions
 
-    Consultation des transactions par compte.
-    Ajout, modification et suppression de transactions.
+1. Fork this repo
+1. Clone the repo onto your computer
+1. Open a terminal window in the cloned project
+1. Run the following commands:
 
-3. Technologies utilisées
-
-    Frontend :
-        React
-        Redux (gestion de l'état global)
-        React Router (navigation entre les pages)
-        CSS (styles personnalisés)
-    Backend :
-        API REST (fourni pour la gestion des utilisateurs et des transactions)
-        Documentation Swagger pour les endpoints API
-
-4. Prérequis
-
-Avant d'exécuter ce projet, assurez-vous d'avoir installé les éléments suivants sur votre machine :
-
-    Node.js (version 12 ou supérieure)
-    npm (ou yarn)
-    nvm
-
-5. Installation
-1. Cloner le projet
-
-git clone https://github.com/samiNedjai/argentbank.git
-
-2. Backend
-
-    Accéder au Backend
-
-cd .\BackEnd\
-
-    utiliser node v 12
-
-nvm use 12
-
-    lancer le serveur
-
-npm run dev:server
-
-3. Frontend
-
-    Accéder au frontend
-
-cd .\frontend
-
-    install dependencies
-
+```bash
+# Install dependencies
 npm install
 
-    lancer l'application
+# Start local dev server
+npm run dev:server
 
-npm start
+# Populate database with two users
+npm run populate-db
+```
 
+Your server should now be running at http://locahost:3001 and you will now have two users in your MongoDB database!
+
+## Populated Database Data
+
+Once you run the `populate-db` script, you should have two users in your database:
+
+### Tony Stark
+
+- First Name: `Tony`
+- Last Name: `Stark`
+- Email: `tony@stark.com`
+- Password: `password123`
+
+### Steve Rogers
+
+- First Name: `Steve`,
+- Last Name: `Rogers`,
+- Email: `steve@rogers.com`,
+- Password: `password456`
+
+## API Documentation
+
+To learn more about how the API works, once you have started your local environment, you can visit: http://localhost:3001/api-docs
+
+## Design Assets
+
+Static HTML and CSS has been created for most of the site and is located in: `/designs`.
+
+For some of the dynamic features, like toggling user editing, there is a mock-up for it in `/designs/wireframes/edit-user-name.png`.
+
+And for the API model that you will be proposing for transactitons, the wireframe can be found in `/designs/wireframes/transactions.png`.
